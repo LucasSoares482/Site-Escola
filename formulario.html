@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Inscrição do Aluno</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background-color: #add8e6;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header img {
+            height: 50px;
+        }
+        header h1 {
+            margin: 0;
+            text-align: center;
+            flex-grow: 1;
+        }
+        header a {
+            color: black;
+            text-decoration: underline;
+        }
+        nav {
+            margin: 20px 0;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            margin: 20px auto;
+            width: 80%;
+            border-radius: 8px;
+        }
+        fieldset {
+            border: 2px solid #000;
+            margin-bottom: 20px;
+        }
+        legend {
+            font-weight: bold;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        footer {
+            background-color: #add8e6;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Logo da Escola">
+        <h1>Formulário de Inscrição do Aluno</h1>
+        <a href="index.html">Retornar ao site principal</a>
+    </header>
+    <nav>
+        <!-- Elementos para imagem -->
+    </nav>
+    <div class="container">
+        <fieldset>
+            <legend>Informações Pessoais</legend>
+            <label for="nome">Nome do Aluno (Obrigatório)</label>
+            <input type="text" id="nome" name="nome" required>
+            
+            <label for="idade">Idade (1 a 18 anos) (Obrigatório)</label>
+            <input type="number" id="idade" name="idade" min="1" max="18" required>
+            
+            <label for="cpf">CPF do Aluno (Obrigatório)</label>
+            <input type="text" id="cpf" name="cpf" required>
+            
+            <label for="data-nascimento">Data de Nascimento (Obrigatório)</label>
+            <input type="date" id="data-nascimento" name="data-nascimento" required>
+            
+            <label for="email">Email do Aluno (Opcional)</label>
+            <input type="email" id="email" name="email">
+            
+            <label for="celular">Número de Celular do Aluno (Opcional)</label>
+            <input type="tel" id="celular" name="celular">
+        </fieldset>
+        
+        <fieldset>
+            <legend>Informações de Contato do Responsável</legend>
+            <label for="nome-pai">Nome do Pai (Opcional)</label>
+            <input type="text" id="nome-pai" name="nome-pai">
+            
+            <label for="nome-mae">Nome da Mãe (Obrigatório)</label>
+            <input type="text" id="nome-mae" name="nome-mae" required>
+            
+            <label for="email-contato">Email de Contato (Obrigatório)</label>
+            <input type="email" id="email-contato" name="email-contato" required>
+            
+            <label for="telefone-residencial">Telefone Residencial (Opcional)</label>
+            <input type="tel" id="telefone-residencial" name="telefone-residencial">
+            
+            <label for="celular-responsavel">Número de Celular (Obrigatório)</label>
+            <input type="tel" id="celular-responsavel" name="celular-responsavel" required>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Consultar o Endereço do Aluno</legend>
+            <label for="cep">Informe aqui seu CEP (Obrigatório)</label>
+            <input type="text" id="cep" name="cep" required>
+            <button type="button" onclick="consultarCEP()">Consultar CEP</button>
+            <div id="endereco"></div>
+            
+            <label for="cep-manual">Digite seu CEP manualmente (Opcional)</label>
+            <input type="text" id="cep-manual" name="cep-manual">
+            
+            <label for="endereco-completo">Digite seu endereço completo manualmente (Opcional)</label>
+            <input type="text" id="endereco-completo" name="endereco-completo">
+        </fieldset>
+    </div>
+    <footer>
+        <p>Endereço fictício, Número de telefone fictício, Email fictício</p>
+        <p>© 2024 Escola Fictícia. Todos os direitos reservados.</p>
+    </footer>
+    <script>
+        document.getElementById('idade').addEventListener('input', function() {
+            const idade = parseInt(this.value);
+            const maiorIdade = document.getElementById('maior-idade');
+            const antecedentes = document.getElementById('antecedentes');
+            const paisFalecidos = document.getElementById('pais-falecidos');
+            
+            if (idade > 18) {
+                if (!maiorIdade) {
+                    const textarea = document.createElement('textarea');
+                    textarea.id = 'maior-idade';
+                    textarea.name = 'maior-idade';
+                    textarea.required = true;
+                    textarea.placeholder = 'É maior de idade? Quais são seus motivos para retornar aos estudos?';
+                    this.parentNode.appendChild(textarea);
+                }
+                if (!antecedentes) {
+                    const textarea = document.createElement('textarea');
+                    textarea.id = 'antecedentes';
+                    textarea.name = 'antecedentes';
+                    textarea.required = true;
+                    textarea.placeholder = 'Possui antecedentes criminais?';
+                    this.parentNode.appendChild(textarea);
+                }
+                if (!paisFalecidos) {
+                    const div = document.createElement('div');
+                    div.id = 'pais-falecidos';
+                    div.innerHTML = `
+                        <label>Seus pais são falecidos?</label>
+                        <input type="radio" id="pais-falecidos-sim" name="pais-falecidos" value="sim" required> Sim
+                        <input type="radio" id="pais-falecidos-nao" name="pais-falecidos" value="nao" required> Não
+                    `;
+                    this.parentNode.appendChild(div);
+                }
+            } else {
+                if (maiorIdade) maiorIdade.remove();
+                if (antecedentes) antecedentes.remove();
+                if (paisFalecidos) paisFalecidos.remove();
+            }
+        });
+
+        function consultarCEP() {
+            const cep = document.getElementById('cep').value;
+            const enderecoDiv = document.getElementById('endereco');
+            enderecoDiv.innerHTML = 'Carregando...';
+            
+            fetch(`https://viacep.com.br/ws/${cep}/json/`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.erro) {
+                        enderecoDiv.innerHTML = 'CEP não encontrado.';
+                    } else {
+                        enderecoDiv.innerHTML = `
+                            <table>
+                                <tr><td>Logradouro:</td><td>${data.logradouro}</td></tr>
+                                <tr><td>Bairro:</td><td>${data.bairro}</td></tr>
+                                <tr><td>Cidade:</td><td>${data.localidade}</td></tr>
+                                <tr><td>Estado:</td><td>${data.uf}</td></tr>
+                            </table>
+                        `;
+                    }
+                })
+                .catch(error => {
+                    enderecoDiv.innerHTML = 'Erro ao consultar o CEP.';
+                });
+        }
+    </script>
+</body>
+</html>

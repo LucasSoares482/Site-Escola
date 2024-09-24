@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Endereço</title>
+    <link rel="stylesheet" href="style-endereco.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Consulta de Endereço pelo CEP</h1>
+        <form id="cepForm">
+            <label for="cep">Digite o CEP:</label>
+            <input type="text" id="cep" name="cep" required>
+            <button type="submit">Consultar</button>
+        </form>
+        <div id="loading" style="display: none;">Carregando...</div>
+        <div id="result" class="card" style="display: none;">
+            <h2>Endereço</h2>
+            <p><strong>Logradouro:</strong> <span id="logradouro"></span></p>
+            <p><strong>Bairro:</strong> <span id="bairro"></span></p>
+            <p><strong>Cidade:</strong> <span id="localidade"></span></p>
+            <p><strong>Estado:</strong> <span id="uf"></span></p>
+        </div>
+    </div>
+    <script src="script-endereco.js"></script>
+</body>
+</html>

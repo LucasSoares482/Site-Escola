@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escola Fictícia</title>
+    <style>
+        body {
+            font-family: 'Aptos', sans-serif;
+            margin: 0;
+        }
+        header {
+            background-color: #ADD8E6;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            height: 60px;
+        }
+        header img {
+            height: 40px;
+        }
+        header .school-name {
+            margin-left: 10px;
+        }
+        header .search-bar {
+            flex-grow: 1;
+            margin: 0 20px;
+        }
+        header .search-bar input {
+            width: 100%;
+            padding: 5px;
+        }
+        header .user-options {
+            display: flex;
+            align-items: center;
+        }
+        header .user-options div {
+            margin-left: 20px;
+            position: relative;
+        }
+        header .user-options div:hover .tooltip {
+            display: block;
+        }
+        header .user-options .tooltip {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 5px;
+            top: 100%;
+            left: 0;
+            z-index: 1;
+        }
+        nav {
+            text-align: center;
+            padding: 20px;
+        }
+        nav img {
+            max-width: 100%;
+            height: auto;
+        }
+        section {
+            padding: 20px;
+        }
+        section .news {
+            display: flex;
+            justify-content: space-between;
+        }
+        section .news .news-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 30%;
+            display: flex;
+            align-items: center;
+        }
+        section .news .news-item img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        article {
+            padding: 20px;
+        }
+        article .testimonials {
+            display: flex;
+            flex-direction: column;
+        }
+        article .testimonials .testimonial {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        article .testimonials .testimonial img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        article .testimonials .testimonial .stars {
+            margin-right: 10px;
+        }
+        article .testimonials .view-more {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px;
+            text-align: center;
+            cursor: pointer;
+        }
+        aside {
+            padding: 20px;
+        }
+        footer {
+            background-color: #ADD8E6;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            alert("Bem-vindo à Escola Fictícia!");
+        };
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Logo da Escola">
+            <span class="school-name">Escola Fictícia</span>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Pesquisar...">
+        </div>
+        <div class="user-options">
+            <div class="login">
+                <span style="text-decoration: underline;"><a href="login.html">Login de Usuário</a></span>
+                <div class="tooltip">faça login de aluno</div>
+            </div>
+            <div class="registration">
+                <a href="formulario.html" style="text-decoration: underline;">Seção de Inscrições</a>
+                <div class="tooltip">inscreva seu estudante em nossa escola!</div>
+            </div>
+            <div class="staff">
+                <a href="endereco.html" style="text-decoration: underline;">Concultar seu endereço CEP</a>
+                <div class="tooltip">Consulte seu endreço utilizando seu numero de CEP</div>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <img src="school.jpg" alt="Imagem da Escola">
+        <p>Seja bem-vindo à [Nome da Escola fictício], onde cada aluno é convidado a descobrir seu potencial! Aqui, acreditamos que a educação vai além das salas de aula, é uma jornada de crescimento, conhecimento e valores. Junte-se a nós nessa missão de transformar o futuro!</p>
+    </nav>
+    <section>
+        <h2>Notícias e Eventos</h2>
+        <div class="news">
+            <div class="news-item">
+                <img src="news1.jpg" alt="Notícia 1">
+                <div>
+                    <h3>Título da Notícia 1</h3>
+                    <p>Texto da notícia 1...</p>
+                </div>
+            </div>
+            <div class="news-item">
+                <img src="news2.jpg" alt="Notícia 2">
+                <div>
+                    <h3>Título da Notícia 2</h3>
+                    <p>Texto da notícia 2...</p>
+                </div>
+            </div>
+            <div class="news-item">
+                <img src="news3.jpg" alt="Notícia 3">
+                <div>
+                    <h3>Título da Notícia 3</h3>
+                    <p>Texto da notícia 3...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <article>
+        <h2>Depoimentos de Alunos e Pais</h2>
+        <div class="testimonials">
+            <div class="testimonial">
+                <img src="user1.jpg" alt="Usuário 1">
+                <div class="stars">★★★★★</div>
+                <p>Comentário do usuário 1...</p>
+            </div>
+            <div class="testimonial">
+                <img src="user2.jpg" alt="Usuário 2">
+                <div class="stars">★★★★☆</div>
+                <p>Comentário do usuário 2...</p>
+            </div>
+            <div class="testimonial">
+                <img src="user3.jpg" alt="Usuário 3">
+                <div class="stars">★★★★★</div>
+                <p>Comentário do usuário 3...</p>
+            </div>
+            <div class="testimonial">
+                <img src="user4.jpg" alt="Usuário 4">
+                <div class="stars">★★★☆☆</div>
+                <p>Comentário do usuário 4...</p>
+            </div>
+        </div>
+        <div class="view-more">Ver mais avaliações</div>
+    </article>
+    <aside>
+        <h2>Nossa História</h2>
+        <p>Texto sobre a história da escola...</p>
+        <h2>Nossas Certificações</h2>
+        <p>Texto sobre as certificações da escola...</p>
+    </aside>
+    <footer>
+        <p>Endereço Fictício, 123 - Cidade, Estado</p>
+        <p>Telefone: (91) 1234-5678</p>
+        <p>Email: contato@escolaficticia.com.br</p>
+        <p>© 2024 Escola Fictícia. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login do Aluno</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+        header {
+            background-color: #ADD8E6; /* Azul leve */
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header img {
+            height: 50px;
+        }
+        header h1 {
+            margin: 0;
+            text-align: center;
+            flex-grow: 1;
+        }
+        header a {
+            color: black;
+            text-decoration: underline;
+        }
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: white;
+        }
+        .login-box {
+            background-color: #D3D3D3; /* Cinza leve */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .login-box h2 {
+            margin-bottom: 20px;
+        }
+        .login-box input {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-box #qr-code {
+            width: 150px;
+            height: 150px;
+            margin: 20px auto;
+            background-color: #fff;
+            border: 1px solid #ccc;
+        }
+        .login-box #qr-code:hover + .qr-message {
+            display: block;
+        }
+        .qr-message {
+            display: none;
+            margin-top: 10px;
+            color: #555;
+        }
+        .login-box button {
+            display: none;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        footer {
+            background-color: #ADD8E6; /* Azul leve */
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Logo da Escola">
+        <h1>Login do Aluno</h1>
+        <a href="index.html">Retornar ao site principal</a>
+    </header>
+    <div class="login-container">
+        <div class="login-box">
+            <h2>Login do Usuário</h2>
+            <input type="text" id="email" placeholder="Nome ou Email">
+            <input type="password" id="senha" placeholder="Senha">
+            <div id="qr-code"></div>
+            <div class="qr-message">Use o seu login do celular para continuar</div>
+            <button id="login-btn">Logar</button>
+        </div>
+    </div>
+    <footer>
+        <p>Endereço: Rua Fictícia, 123, Belém, PA</p>
+        <p>Telefone: (91) 1234-5678</p>
+        <p>Email: contato@escolaficticia.com</p>
+        <p>© 2024 Escola Fictícia. Todos os direitos reservados.</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            alert('Você pode usar seu login do celular para entrar em sua conta');
+        });
+
+        const emailInput = document.getElementById('email');
+        const senhaInput = document.getElementById('senha');
+        const loginBtn = document.getElementById('login-btn');
+
+        emailInput.addEventListener('input', toggleLoginButton);
+        senhaInput.addEventListener('input', toggleLoginButton);
+
+        function toggleLoginButton() {
+            if (emailInput.value && senhaInput.value) {
+                loginBtn.style.display = 'block';
+            } else {
+                loginBtn.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
